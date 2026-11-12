@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กรุงเทพฯ 16-Bit • Cozy Bangkok Soi Pixel-Art</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      background: #0f111a;
+      color: #e2e8f0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Sarabun", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 16px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #f4a261;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .badge {
+      background: #e76f51;
+      color: #ffffff;
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    p.subtitle {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    .viewport-container {
+      position: relative;
+      background: #000000;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      max-width: 960px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    canvas#pixelCanvas {
+      width: 100%;
+      height: auto;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+      border-radius: 6px;
+      cursor: grab;
+    }
+
+    canvas#pixelCanvas:active {
+      cursor: grabbing;
+    }
+
+    .hud-controls {
+      margin-top: 16px;
+      max-width: 960px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+    }
+
+    .panel {
+      background: #1a1d29;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+
+    .panel-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    button.btn {
+      background: #272c3d;
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    button.btn:hover {
+      background: #333a4f;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    button.btn.active {
+      background: #f4a261;
+      color: #1a120b;
+      border-color: #f4a261;
+      font-weight: 700;
+    }
+
+    .slider-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .slider-row label {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      min-width: 65px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+      accent-color: #f4a261;
+      cursor: pointer;
+    }
+
+    .layer-toggles {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .layer-chip {
+      background: #272c3d;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .layer-chip input {
+      accent-color: #2a9d8f;
+      cursor: pointer;
+    }
+
+    .shortcuts-footer {
+      margin-top: 14px;
+      font-size: 0.75rem;
+      color: #64748b;
+      text-align: center;
+    }
+
+    kbd {
+      background: #272c3d;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: monospace;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>
+      <span>กรุงเทพฯ 16-Bit</span>
+      <span class="badge">Cozy Bangkok Soi</span>
+    </h1>
+    <p class="subtitle">ฉากหลังเกมพิกเซลอาร์ตซอยกรุงเทพฯ • 4 Parallax Layers & Asset Exporter</p>
+  </header>
+
+  <main class="viewport-container">
+    <canvas id="pixelCanvas" width="960" height="540"></canvas>
+  </main>
+
+  <section class="hud-controls">
+    <!-- Panel 1: Time of Day -->
+    <div class="panel">
+      <div class="panel-title">🌅 บรรยากาศ & โทนแสง (Time of Day)</div>
+      <div class="btn-group">
+        <button class="btn active" id="btnGolden">🌅 แดดร่มลมตก (Golden Hour)</button>
+        <button class="btn" id="btnMidday">☀️ กลางวัน (Midday)</button>
+        <button class="btn" id="btnNight">🌃 ราตรี (Neon Night)</button>
+      </div>
+    </div>
+
+    <!-- Panel 2: Parallax Controller -->
+    <div class="panel">
+      <div class="panel-title">🎬 ควบคุมการเลื่อน (Parallax Motion)</div>
+      <div class="btn-group">
+        <button class="btn active" id="btnAutoScroll">⏸ หยุดเลื่อน</button>
+        <button class="btn" id="btnResetScroll">↺ รีเซ็ตตำแหน่ง</button>
+      </div>
+      <div class="slider-row">
+        <label for="speedSlider">ความเร็ว:</label>
+        <input type="range" id="speedSlider" min="0" max="80" value="24">
+        <span id="speedValue" style="font-size: 0.75rem; min-width: 35px;">24px</span>
+      </div>
+    </div>
+
+    <!-- Panel 3: Layer Visibility -->
+    <div class="panel">
+      <div class="panel-title">📑 แสดง/ซ่อนเลเยอร์ (Layer Toggles)</div>
+      <div class="layer-toggles">
+        <label class="layer-chip">
+          <input type="checkbox" id="toggleL0" checked> L0: ท้องฟ้า & เมฆ
+        </label>
+        <label class="layer-chip">
+          <input type="checkbox" id="toggleL1" checked> L1: ขอบฟ้า & เจดีย์
+        </label>
+        <label class="layer-chip">
+          <input type="checkbox" id="toggleL2" checked> L2: ตึกแถว & สายไฟ
+        </label>
+        <label class="layer-chip">
+          <input type="checkbox" id="toggleL3" checked> L3: วิน & หมูปิ้ง
+        </label>
+      </div>
+    </div>
+
+    <!-- Panel 4: Asset Export -->
+    <div class="panel">
+      <div class="panel-title">📦 ส่งออกไฟล์เกม (Export Game Assets)</div>
+      <div class="btn-group">
+        <button class="btn" id="btnExport1x">📸 ภาพรวม (1x 480p)</button>
+        <button class="btn" id="btnExport2x">📸 ภาพรวม (2x 720p)</button>
+        <button class="btn" id="btnExport4x">📸 ภาพรวม (4x 1080p)</button>
+        <button class="btn" id="btnExportLayers" style="background: #2a9d8f; border-color: #2a9d8f;">✨ แยก 4 เลเยอร์ (PNG)</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="shortcuts-footer">
+    คีย์ลัด: <kbd>Space</kbd> หยุด/เล่นเลื่อนฉาก | <kbd>←</kbd> <kbd>→</kbd> เลื่อนฉากด้วยมือ | <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> สลับช่วงเวลา
+  </footer>
+
+  <script type="module">
+    import { PixelEngine } from "./engine.js";
+    import { renderSky } from "./layers/sky.js";
+    import { renderSkyline } from "./layers/skyline.js";
+    import { renderShophouses } from "./layers/shophouses.js";
+    import { renderStreet } from "./layers/street.js";
+    import { exportCompositePNG, exportAllLayers } from "./exporter.js";
+
+    const canvas = document.getElementById("pixelCanvas");
+    const engine = new PixelEngine(canvas, 480, 270);
+
+    // Register Parallax Layers in back-to-front order
+    engine.addLayer(renderSky);          // L0
+    engine.addLayer(renderSkyline);      // L1
+    engine.addLayer(renderShophouses);   // L2
+    engine.addLayer(renderStreet);       // L3
+
+    // Start engine loop
+    engine.start();
+
+    // ------------------------------------------
+    // UI Event Handlers
+    // ------------------------------------------
+    const btnGolden = document.getElementById("btnGolden");
+    const btnMidday = document.getElementById("btnMidday");
+    const btnNight = document.getElementById("btnNight");
+
+    function setTime(timeKey, activeBtn) {
+      engine.setTimeOfDay(timeKey);
+      [btnGolden, btnMidday, btnNight].forEach(b => b.classList.remove("active"));
+      activeBtn.classList.add("active");
+    }
+
+    btnGolden.addEventListener("click", () => setTime("goldenHour", btnGolden));
+    btnMidday.addEventListener("click", () => setTime("midday", btnMidday));
+    btnNight.addEventListener("click", () => setTime("neonNight", btnNight));
+
+    // Auto-Scroll Toggle
+    const btnAutoScroll = document.getElementById("btnAutoScroll");
+    btnAutoScroll.addEventListener("click", () => {
+      engine.autoScroll = !engine.autoScroll;
+      btnAutoScroll.textContent = engine.autoScroll ? "⏸ หยุดเลื่อน" : "▶ เล่นเลื่อนฉาก";
+      btnAutoScroll.classList.toggle("active", engine.autoScroll);
+    });
+
+    // Reset Scroll
+    document.getElementById("btnResetScroll").addEventListener("click", () => {
+      engine.scrollX = 0;
+    });
+
+    // Speed Slider
+    const speedSlider = document.getElementById("speedSlider");
+    const speedValue = document.getElementById("speedValue");
+    speedSlider.addEventListener("input", (e) => {
+      engine.scrollSpeed = Number(e.target.value);
+      speedValue.textContent = `${engine.scrollSpeed}px`;
+    });
+
+    // Layer Visibility
+    [0, 1, 2, 3].forEach(idx => {
+      const toggle = document.getElementById(`toggleL${idx}`);
+      toggle.addEventListener("change", (e) => {
+        engine.layerVisibility[idx] = e.target.checked;
+      });
+    });
+
+    // Asset Exporter
+    document.getElementById("btnExport1x").addEventListener("click", () => exportCompositePNG(engine, 1));
+    document.getElementById("btnExport2x").addEventListener("click", () => exportCompositePNG(engine, 2));
+    document.getElementById("btnExport4x").addEventListener("click", () => exportCompositePNG(engine, 4));
+    document.getElementById("btnExportLayers").addEventListener("click", () => exportAllLayers(engine, 2));
+
+    // Keyboard Shortcuts
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        btnAutoScroll.click();
+      } else if (e.key === "1") {
+        btnGolden.click();
+      } else if (e.key === "2") {
+        btnMidday.click();
+      } else if (e.key === "3") {
+        btnNight.click();
+      } else if (e.key === "ArrowLeft") {
+        engine.scrollX -= 16;
+      } else if (e.key === "ArrowRight") {
+        engine.scrollX += 16;
+      }
+    });
+
+    // Drag to Pan
+    let isDragging = false;
+    let startX = 0;
+    canvas.addEventListener("mousedown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+    });
+    window.addEventListener("mouseup", () => isDragging = false);
+    window.addEventListener("mousemove", (e) => {
+      if (isDragging) {
+        const dx = e.clientX - startX;
+        engine.scrollX -= dx * 0.5;
+        startX = e.clientX;
+      }
+    });
+
+    // Touch support for mobile/Android
+    canvas.addEventListener("touchstart", (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+    window.addEventListener("touchend", () => isDragging = false);
+    canvas.addEventListener("touchmove", (e) => {
+      if (isDragging && e.touches.length === 1) {
+        const dx = e.touches[0].clientX - startX;
+        engine.scrollX -= dx * 0.5;
+        startX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
