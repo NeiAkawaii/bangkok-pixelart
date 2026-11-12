@@ -1,0 +1,312 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" width="960" height="540" style="shape-rendering: crispEdges;">
+  <defs>
+    <!-- Sky Gradient -->
+    <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e26d5c"/>
+      <stop offset="45%" stop-color="#f4a261"/>
+      <stop offset="100%" stop-color="#ffe3a8"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff3b0" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#f4a261" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#f4a261" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- L0: Sky -->
+  <rect width="480" height="270" fill="url(#skyGrad)"/>
+
+  <!-- Sun -->
+  <circle cx="340" cy="52" r="28" fill="url(#sunGlow)"/>
+  <circle cx="340" cy="52" r="16" fill="#fff3b0"/>
+
+  <!-- Clouds -->
+  <g fill="#fff4e6" opacity="0.9">
+    <!-- Cloud 1 -->
+    <rect x="50" y="32" width="56" height="12"/>
+    <rect x="62" y="24" width="36" height="8"/>
+    <rect x="42" y="36" width="70" height="6"/>
+    <!-- Cloud 2 -->
+    <rect x="220" y="20" width="70" height="14"/>
+    <rect x="235" y="14" width="45" height="6"/>
+    <rect x="210" y="26" width="85" height="6"/>
+  </g>
+  <g fill="#b36a5e" opacity="0.4">
+    <rect x="42" y="42" width="70" height="4"/>
+    <rect x="210" y="32" width="85" height="4"/>
+  </g>
+
+  <!-- L1: Skyline Silhouettes -->
+  <!-- Far Skyline (Darker Mauve) -->
+  <g fill="#5c334d">
+    <!-- Telecom tower (Baiyoke style) -->
+    <rect x="40" y="55" width="24" height="110"/>
+    <rect x="46" y="35" width="12" height="20"/>
+    <rect x="51" y="15" width="2" height="20"/>
+    <rect x="50" y="13" width="4" height="3" fill="#ff0044"/>
+    <rect x="110" y="90" width="45" height="75"/>
+    <rect x="220" y="70" width="30" height="95"/>
+    <rect x="225" y="50" width="20" height="20"/>
+    <rect x="380" y="105" width="28" height="60"/>
+    <rect x="393" y="85" width="2" height="20"/>
+  </g>
+
+  <!-- Mid Skyline (Warm Purple) -->
+  <g fill="#7a4e65">
+    <!-- Wat Saket (Golden Mount) -->
+    <polygon points="280,165 300,130 335,130 355,165"/>
+    <rect x="310" y="115" width="15" height="15"/>
+    <rect x="313" y="103" width="9" height="12"/>
+    <rect x="316" y="87" width="3" height="16"/>
+    <rect x="316" y="85" width="3" height="3" fill="#fff3b0"/>
+
+    <!-- Mahanakhon style stepped tower -->
+    <rect x="155" y="40" width="32" height="125"/>
+    <rect x="155" y="80" width="6" height="8" fill="#5c334d"/>
+    <rect x="160" y="88" width="7" height="8" fill="#5c334d"/>
+    <rect x="175" y="105" width="8" height="8" fill="#5c334d"/>
+
+    <rect x="0" y="100" width="35" height="65"/>
+    <rect x="70" y="80" width="30" height="85"/>
+    <rect x="190" y="95" width="25" height="70"/>
+    <rect x="420" y="85" width="40" height="80"/>
+  </g>
+
+  <!-- L2: Midground Shophouses -->
+  <!-- Left Shophouse (3-story) -->
+  <rect x="10" y="55" width="140" height="150" fill="#c98a68"/>
+  <rect x="10" y="55" width="140" height="6" fill="#9e624c"/>
+  <rect x="10" y="100" width="140" height="4" fill="#9e624c"/>
+  <rect x="10" y="150" width="140" height="4" fill="#9e624c"/>
+
+  <!-- Shutter doors -->
+  <rect x="20" y="160" width="50" height="45" fill="#5a504d"/>
+  <rect x="85" y="160" width="55" height="45" fill="#5a504d"/>
+  <g fill="#443c3a">
+    <rect x="20" y="168" width="50" height="1"/>
+    <rect x="20" y="176" width="50" height="1"/>
+    <rect x="20" y="184" width="50" height="1"/>
+    <rect x="20" y="192" width="50" height="1"/>
+    <rect x="85" y="168" width="55" height="1"/>
+    <rect x="85" y="176" width="55" height="1"/>
+    <rect x="85" y="184" width="55" height="1"/>
+    <rect x="85" y="192" width="55" height="1"/>
+  </g>
+
+  <!-- Windows & Balconies -->
+  <g fill="#2d2422">
+    <rect x="28" y="70" width="26" height="28"/>
+    <rect x="65" y="70" width="26" height="28"/>
+    <rect x="105" y="70" width="26" height="28"/>
+    <rect x="28" y="115" width="26" height="28"/>
+    <rect x="65" y="115" width="26" height="28"/>
+    <rect x="105" y="115" width="26" height="28"/>
+  </g>
+  <g fill="#8ecae6">
+    <rect x="30" y="72" width="22" height="24"/>
+    <rect x="67" y="72" width="22" height="24"/>
+    <rect x="107" y="72" width="22" height="24"/>
+    <rect x="30" y="117" width="22" height="24"/>
+    <rect x="67" y="117" width="22" height="24"/>
+    <rect x="107" y="117" width="22" height="24"/>
+  </g>
+  <!-- Security Grilles -->
+  <g fill="#9e624c">
+    <rect x="35" y="72" width="1" height="24"/>
+    <rect x="46" y="72" width="1" height="24"/>
+    <rect x="72" y="72" width="1" height="24"/>
+    <rect x="83" y="72" width="1" height="24"/>
+    <rect x="112" y="72" width="1" height="24"/>
+    <rect x="123" y="72" width="1" height="24"/>
+  </g>
+  <!-- Balcony Railings -->
+  <rect x="26" y="90" width="30" height="8" fill="#4a3b32"/>
+  <rect x="63" y="90" width="30" height="8" fill="#4a3b32"/>
+  <rect x="103" y="90" width="30" height="8" fill="#4a3b32"/>
+  <!-- Drying clothes -->
+  <rect x="32" y="78" width="5" height="9" fill="#ef476f"/>
+  <rect x="39" y="78" width="6" height="8" fill="#06d6a0"/>
+  <rect x="70" y="78" width="5" height="8" fill="#ffd166"/>
+  <rect x="110" y="78" width="6" height="9" fill="#118ab2"/>
+
+  <!-- Convenience Store (Minimart) -->
+  <rect x="175" y="75" width="110" height="130" fill="#9e624c"/>
+  <!-- Awning (Green & Orange) -->
+  <g>
+    <rect x="175" y="155" width="14" height="14" fill="#48cae4"/>
+    <rect x="189" y="155" width="14" height="14" fill="#ff7b00"/>
+    <rect x="203" y="155" width="14" height="14" fill="#48cae4"/>
+    <rect x="217" y="155" width="14" height="14" fill="#ff7b00"/>
+    <rect x="231" y="155" width="14" height="14" fill="#48cae4"/>
+    <rect x="245" y="155" width="14" height="14" fill="#ff7b00"/>
+    <rect x="259" y="155" width="14" height="14" fill="#48cae4"/>
+    <rect x="273" y="155" width="12" height="14" fill="#ff7b00"/>
+    <rect x="175" y="169" width="110" height="2" fill="#4a3b32"/>
+  </g>
+  <!-- Storefront glass -->
+  <rect x="185" y="171" width="90" height="34" fill="#d1e7dd"/>
+
+  <!-- Spirit House & Frangipani Tree -->
+  <rect x="350" y="135" width="5" height="70" fill="#5c4033"/>
+  <rect x="338" y="110" width="36" height="30" fill="#2d6a4f"/>
+  <rect x="342" y="100" width="26" height="15" fill="#2d6a4f"/>
+  <rect x="344" y="115" width="3" height="3" fill="#ffffff"/>
+  <rect x="360" y="123" width="3" height="3" fill="#ffffff"/>
+  <!-- Spirit house -->
+  <rect x="322" y="175" width="4" height="30" fill="#d4af37"/>
+  <rect x="318" y="173" width="12" height="2" fill="#d4af37"/>
+  <rect x="317" y="160" width="14" height="13" fill="#d4af37"/>
+  <polygon points="315,160 324,150 333,160" fill="#e63946"/>
+  <rect x="320" y="169" width="8" height="2" fill="#fb8500"/>
+
+  <!-- Green Bangkok Soi Sign -->
+  <rect x="361" y="160" width="3" height="45" fill="#94a3b8"/>
+  <rect x="351" y="147" width="24" height="13" fill="#ffffff"/>
+  <rect x="352" y="148" width="22" height="11" fill="#1e5128"/>
+  <rect x="355" y="152" width="4" height="2" fill="#ffffff"/>
+  <rect x="361" y="151" width="3" height="5" fill="#ffffff"/>
+  <rect x="367" y="151" width="3" height="5" fill="#ffffff"/>
+
+  <!-- Utility Poles & Tangled Overhead Cables -->
+  <!-- Pole 1 -->
+  <rect x="160" y="45" width="8" height="160" fill="#807065"/>
+  <rect x="167" y="45" width="1" height="160" fill="#4a3b32"/>
+  <rect x="146" y="53" width="36" height="4" fill="#807065"/>
+  <rect x="150" y="67" width="28" height="4" fill="#807065"/>
+  <rect x="147" y="49" width="3" height="4" fill="#e2e8f0"/>
+  <rect x="163" y="49" width="3" height="4" fill="#e2e8f0"/>
+  <rect x="178" y="49" width="3" height="4" fill="#e2e8f0"/>
+  <!-- Transformer -->
+  <rect x="152" y="77" width="14" height="18" fill="#64748b"/>
+  <rect x="153" y="79" width="12" height="14" fill="#334155"/>
+
+  <!-- Pole 2 -->
+  <rect x="440" y="45" width="8" height="160" fill="#807065"/>
+  <rect x="447" y="45" width="1" height="160" fill="#4a3b32"/>
+  <rect x="426" y="53" width="36" height="4" fill="#807065"/>
+
+  <!-- Tangled drooping cables -->
+  <path d="M 164 51 L 444 51" stroke="#2b1e1a" stroke-width="1" fill="none"/>
+  <path d="M 150 55 Q 300 63 430 55" stroke="#2b1e1a" stroke-width="1" fill="none"/>
+  <path d="M 164 100 Q 300 112 444 104" stroke="#2b1e1a" stroke-width="1.2" fill="none"/>
+  <path d="M 164 105 Q 300 123 444 109" stroke="#2b1e1a" stroke-width="1.5" fill="none"/>
+  <path d="M 164 110 Q 300 134 444 114" stroke="#2b1e1a" stroke-width="1.8" fill="none"/>
+  <path d="M 164 117 Q 300 149 444 121" stroke="#2b1e1a" stroke-width="2" fill="none"/>
+  <path d="M 164 110 L 120 115" stroke="#2b1e1a" stroke-width="1" fill="none"/>
+  <path d="M 164 117 L 195 115" stroke="#2b1e1a" stroke-width="1" fill="none"/>
+
+  <!-- L3: Foreground Street Life -->
+  <!-- Sidewalk -->
+  <rect x="0" y="187" width="480" height="18" fill="#d6ccc2"/>
+  <path d="M 0 187 H 480 M 0 196 H 480" stroke="#b8ada2" stroke-width="1"/>
+  <!-- White & Black Curb -->
+  <g>
+    <rect x="0" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="24" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="48" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="72" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="96" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="120" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="144" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="168" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="192" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="216" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="240" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="264" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="288" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="312" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="336" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="360" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="384" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="408" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="432" y="205" width="24" height="14" fill="#ede0d4"/>
+    <rect x="456" y="205" width="24" height="14" fill="#252020"/>
+    <rect x="0" y="205" width="480" height="2" fill="white" opacity="0.3"/>
+  </g>
+
+  <!-- Asphalt Roadway -->
+  <rect x="0" y="219" width="480" height="51" fill="#3d3434"/>
+  <!-- Broken center road markings -->
+  <g fill="#e9c46a">
+    <rect x="20" y="258" width="28" height="3"/>
+    <rect x="68" y="258" width="28" height="3"/>
+    <rect x="116" y="258" width="28" height="3"/>
+    <rect x="164" y="258" width="28" height="3"/>
+    <rect x="212" y="258" width="28" height="3"/>
+    <rect x="260" y="258" width="28" height="3"/>
+    <rect x="308" y="258" width="28" height="3"/>
+    <rect x="356" y="258" width="28" height="3"/>
+    <rect x="404" y="258" width="28" height="3"/>
+    <rect x="452" y="258" width="28" height="3"/>
+  </g>
+  <!-- Drain grating -->
+  <rect x="320" y="221" width="24" height="10" fill="#1e1b26"/>
+  <g fill="#3a3447">
+    <rect x="322" y="221" width="2" height="10"/>
+    <rect x="326" y="221" width="2" height="10"/>
+    <rect x="330" y="221" width="2" height="10"/>
+    <rect x="334" y="221" width="2" height="10"/>
+    <rect x="338" y="221" width="2" height="10"/>
+  </g>
+
+  <!-- Moo Ping Cart -->
+  <!-- Wheels -->
+  <circle cx="80" cy="203" r="7" fill="#1f2937"/>
+  <circle cx="112" cy="203" r="7" fill="#1f2937"/>
+  <!-- Cart body -->
+  <rect x="70" y="179" width="52" height="18" fill="#cbd5e1"/>
+  <rect x="70" y="196" width="52" height="2" fill="#94a3b8"/>
+  <!-- Charcoal grill -->
+  <rect x="76" y="171" width="26" height="8" fill="#111827"/>
+  <rect x="78" y="173" width="22" height="3" fill="#f97316"/>
+  <rect x="82" y="172" width="4" height="2" fill="#fef08a"/>
+  <!-- Skewers -->
+  <rect x="78" y="168" width="6" height="4" fill="#78350f"/>
+  <rect x="86" y="168" width="6" height="4" fill="#78350f"/>
+  <rect x="94" y="168" width="6" height="4" fill="#78350f"/>
+  <!-- Glass display & banana leaf -->
+  <rect x="104" y="175" width="15" height="4" fill="#15803d"/>
+  <rect x="103" y="167" width="17" height="8" fill="#bae6fd" opacity="0.5"/>
+  <!-- Sauce bottles -->
+  <rect x="114" y="170" width="3" height="5" fill="#dc2626"/>
+  <rect x="118" y="170" width="3" height="5" fill="#fbbf24"/>
+  <!-- Smoke particles -->
+  <circle cx="86" cy="158" r="3" fill="#fff" opacity="0.7"/>
+  <circle cx="89" cy="148" r="4" fill="#fff" opacity="0.5"/>
+  <circle cx="93" cy="138" r="5" fill="#fff" opacity="0.3"/>
+
+  <!-- Win Motorcycle Taxi Stand -->
+  <!-- Striped umbrella -->
+  <rect x="258" y="138" width="3" height="65" fill="#64748b"/>
+  <path d="M 231 143 A 28 28 0 0 1 287 143 Z" fill="#0284c7"/>
+  <path d="M 243 143 A 16 16 0 0 1 275 143 Z" fill="#f8fafc"/>
+  <path d="M 251 143 A 8 8 0 0 1 267 143 Z" fill="#0284c7"/>
+
+  <!-- Scooter (Honda Wave) -->
+  <circle cx="248" cy="203" r="6" fill="#0f172a"/>
+  <circle cx="278" cy="203" r="6" fill="#0f172a"/>
+  <rect x="254" y="191" width="22" height="8" fill="#dc2626"/>
+  <rect x="274" y="185" width="6" height="8" fill="#dc2626"/>
+  <rect x="254" y="187" width="18" height="4" fill="#1e293b"/>
+  <rect x="260" y="200" width="16" height="3" fill="#e2e8f0"/>
+  <rect x="277" y="181" width="2" height="6" fill="#64748b"/>
+  <rect x="274" y="180" width="7" height="2" fill="#64748b"/>
+
+  <!-- Win Rider -->
+  <rect x="260" y="185" width="8" height="8" fill="#1e3a8a"/>
+  <rect x="259" y="192" width="4" height="8" fill="#1e3a8a"/>
+  <!-- Orange Vest -->
+  <rect x="258" y="173" width="12" height="13" fill="#ff6f00"/>
+  <rect x="262" y="176" width="4" height="5" fill="#ffffff"/>
+  <!-- Helmet -->
+  <circle cx="264" cy="167" r="6" fill="#e2e8f0"/>
+  <rect x="265" y="167" width="5" height="3" fill="#0f172a"/>
+
+  <!-- Sleeping Soi Dog -->
+  <ellipse cx="400" cy="199" rx="10" ry="6" fill="#d4a373"/>
+  <rect x="398" y="195" width="5" height="4" fill="#8d5b4c"/>
+  <circle cx="392" cy="199" r="5" fill="#d4a373"/>
+  <rect x="391" y="199" width="2" height="1" fill="#332211"/>
+  <rect x="393" y="196" width="3" height="3" fill="#8d5b4c"/>
+  <rect x="409" y="197" width="4" height="3" fill="#d4a373"/>
+</svg>
